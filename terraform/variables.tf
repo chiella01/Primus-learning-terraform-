@@ -8,7 +8,7 @@ variable "env_prefix" {
     default = "dev"
 }
 variable "availability_zone_id" {
-    default = "ap-south-1"
+    default = "ap-south-1a"
 }
 variable "my_ip" {
     default = "154.72.167.101/32"
