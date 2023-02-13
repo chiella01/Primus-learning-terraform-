@@ -30,5 +30,15 @@ pipeline {
                 }
             }
         }
+        stage("provision a server") {
+            steps {
+                script {
+                    dir('terraform') {
+                        sh "terraform init"
+                    }
+
+                }
+            }
+        }
     }
 }
