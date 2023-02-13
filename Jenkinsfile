@@ -16,19 +16,7 @@ pipeline {
                    
                 }
             }
-        stage("build image") {
-            steps {
-                script {
-                    echo "building the docker image"
-                    sh "groups"
-                    withCredentials([usernamePassword(credentialsId: 'docker-hub-credentials', usernameVariable: 'USER', passwordVaribale: 'PASS')]) 
-                    sh "docker build -t $IMAGE_NAME ."
-                    sh " echo $PASS | docker login -u $USER --paasword-stdin"
-                    sh "docker push $IMAGE_NAME"
-            
-                    }
-                }
-            }
+     
         }
     }
 }
