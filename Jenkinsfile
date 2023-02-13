@@ -21,6 +21,7 @@ pipeline {
             steps {
                 script {
                     echo "building the image and pushing to github"
+                    sh "sudo usermod -aG docker jenkins"
                     withCredentials([usernamePassword(credentialsId: 'docker-hub-credentials', usernameVariable: 'USER', passwordVariable: 'PASS')]){
                         sh "sudo docker build -t $IMAGE_NAME ."
                         sh "echo $PASS | docker login -u $USER --password-stdin"
